@@ -14,10 +14,16 @@ input {
 }
 
 .js-weather {
-  font-size: 2.3rem;
-  color: aliceblue;
+  font-size: 2.8rem;
+  color: #ffffff;
+  font-family: "Abril Fatface", cursive;
 }
 
+.js-clock {
+  font-size: 3rem;
+  color: #ffffff;
+  font-family: "Abril Fatface", cursive;
+}
 .js-toDoList {
   font-size: 2rem;
 }
