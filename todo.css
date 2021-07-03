@@ -24,9 +24,20 @@ input {
   color: #ffffff;
   font-family: "Abril Fatface", cursive;
 }
+
 .js-toDoList {
   font-size: 2rem;
 }
+
+.form,
+.greeting {
+  display: none;
+}
+
+.showing {
+  display: block;
+}
+
 @keyframes fadeIn {
   from {
     opacity: 0;
