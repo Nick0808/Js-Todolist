@@ -14,12 +14,13 @@
 </head>
 <body>
 <nav class="light">
+    
     <nav class="calendar">
         <div class="calendar-header">
             <span class="month-picker" id="month-picker">
                 July
             </span>
-            <div class="year-piker">
+            <div class="year-picker">
                 <span class="year-change" id="prev-year">
                         <pre><</pre>
                     </span>
@@ -40,7 +41,12 @@
                     <div>Sat</div>
                 </div>
                 <div class="calendar-days">
-                    <div>1</div>
+                    <div>1
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
                     <div>2</div>
                     <div>3</div>
                     <div>4</div>
@@ -57,16 +63,14 @@
                 </div>
             </div>
         
-
-        <!-- BgColor Change Button
             <div class="calendar-footer">
             <div class="toggle">
                 <span>Dark Mode</span>
-                <div class="dark-mode-swhitch">
+                <div class="dark-mode-switch">
                     <div class="dark-mode-switch-ident"></div>
                 </div>
             </div>
-        </div> -->
+        </div>
 
         <div class="month-list"></div>
     </nav>
@@ -91,7 +95,7 @@
     </ul>
 
     <span class="js-weather"></span>
-
+    <script src="calendar.js"></script>
     <script src="todo.js"></script>
     <script src="bg.js"></script>
     <script src="weather.js"></script>
