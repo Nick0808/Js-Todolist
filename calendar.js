@@ -18,11 +18,12 @@ let calendar = document.querySelector('.calendar')
 
 const month_names = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
 
+let month_picker = document.querySelector('#month-picker')
 // Generate Calendar
 
 generateCalendar = (month, year) => {
     let calendar_days = document.querySelector('.calendar-days')
-    calendar_days.innerHTML = ''
+    calendar_days.innerHTML =''
     let calendar_header_year = document.querySelector('#year')
 
     let days_of_month = [31, getFebDays(year), 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
@@ -44,9 +45,16 @@ generateCalendar = (month, year) => {
                             <span></span>
                             <span></span>`
         if (i - first_day.getDay() + 1 === currentDate.getDate() && year === currentDate.getFullYear() && month === currentDate.getMonth()) {
-            day.classList.add('curr-date')
+            day.classList.add('current-date')
             }
         }
         calendar_days.appendChild(day)
     }
 }
+
+let currentDate = new Date()
+
+let current_month = {value: currentDate.getMonth()}
+let current_year = {value: currentDate.getFullYear()}
+
+generateCalendar(current_month.value, current_year.value)

@@ -51,7 +51,7 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 1rem;
+  font-size: 25px;
   font-weight: 600;
   color: #000;
   padding: 10px;
@@ -65,7 +65,7 @@ nav {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   font-weight: 600;
-  height: 3rem;
+  height: 50px;
 }
 
 .calendar-week-day div {
@@ -124,7 +124,7 @@ nav {
 .calendar-footer {
   padding: 10px;
   display: flex;
-  justify-content: flex-start;
+  justify-content: flex-end;
   align-items: center;
 }
 
@@ -224,4 +224,14 @@ nav {
 
 .calendar-days div:hover span:nth-child(4) {
   transition-delay: 0.6s;
+}
+
+.calendar-days div.current-date {
+  background-color: rgb(61, 221, 226);
+  color: azure;
+  border-radius: 50%;
+}
+
+.calendar-days div .current-date span {
+  display: none;
 }
