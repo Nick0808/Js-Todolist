@@ -6,8 +6,7 @@ document.querySelector('.dark-mode-switch').onclick = () => {
 
 // Check leap year
 isLeapYear = (year) => {
-    return (year % 4 === 0 && year % 100 !== 0 && year % 400
-        !==0) || (year % 100 === 0 && year % 400 === 0)
+    return (year % 4 === 0 && year % 100 !== 0 && year % 400 !==0) || (year % 100 === 0 && year % 400 === 0)
 }
 
 getFebDays = (year) => {
@@ -19,21 +18,31 @@ let calendar = document.querySelector('.calendar')
 const month_names = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
 
 let month_picker = document.querySelector('#month-picker')
+
+month_picker.onclick = () => {
+    month_list.classList.add('show')
+}
 // Generate Calendar
 
 generateCalendar = (month, year) => {
     let calendar_days = document.querySelector('.calendar-days')
-    calendar_days.innerHTML =''
     let calendar_header_year = document.querySelector('#year')
 
     let days_of_month = [31, getFebDays(year), 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
 
-    let currentDate = new Date()
+    calendar_days.innerHTML =''
 
-    month_picker.innerHTML = month_names[month]
+    let currentDate = new Date()
+    if (!month) month = currentDate.getMonth()
+    if (!year) year = currentDate.getFullYear()
+
+    let current_month = `${month_names[month]}`
+    month_picker.innerHTML = current_month
     calendar_header_year.innerHTML = year
 
-    let first_day = new Date(month, year, 1)
+    // get firest day of month
+
+    let first_day = new Date(year, month, 1)
 
     for(let i = 0; i <= days_of_month[month] + first_day.getDay() - 1; i++) {
         let day = document.createElement('div')
@@ -50,6 +59,29 @@ generateCalendar = (month, year) => {
         }
         calendar_days.appendChild(day)
     }
+}
+
+let month_list = calendar.querySelector('.month-list')
+
+month_names.forEach((e, index) => {
+    let month = document.createElement('div')
+    month.innerHTML = `<div>${e}</div>`
+    month.onclick = () => {
+        month_list.classList.remove('show')
+        current_month.value = index
+        generateCalendar(current_month.value, current_year.value)
+    }
+    month_list.appendChild(month)
+})
+
+document.querySelector('#prev-year').onclick = () => {
+    --current_year.value
+    generateCalendar(current_month.value, current_year.value)
+}
+
+document.querySelector('#next-year').onclick = () => {
+    ++current_year.value
+    generateCalendar(current_month.value, current_year.value)
 }
 
 let currentDate = new Date()
